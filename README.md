@@ -14,7 +14,7 @@ copy the example env file
 cp .env.template .env
 ```
 
-and replace the `OPENROUTER_API_KEY` with a real one. Set `RESEARCH_AGENT_DRIVER` to `llm`.
+and replace the LLM provider key with a real one. Set `RESEARCH_AGENT_DRIVER` to `llm`.
 
 Make sure Docker is running, start the compose services
 
