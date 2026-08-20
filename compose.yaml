@@ -1,0 +1,32 @@
+services:
+  aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    container_name: aspire-dashboard
+    ports:
+      - "18888:18888"
+      - "4317:18889"
+      - "4318:18890"
+    environment:
+      - ASPIRE_ALLOW_UNSECURED_TRANSPORT=true
+      - DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS=true
+    networks:
+      - research-agent-network
+
+  research-agent-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: research-agent-backend:latest
+    environment:
+      - "OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318"
+    env_file:
+      - .env
+    ports:
+      - "8787:8000"
+    restart: unless-stopped
+    networks:
+      - research-agent-network
+
+networks:
+  research-agent-network:
+    driver: bridge

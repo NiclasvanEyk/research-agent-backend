@@ -1,0 +1,34 @@
+[project]
+name = "research-agent-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Niclas van Eyk", email = "niclas.eyk@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+    "logfire[fastapi]>=4.40.0",
+    "opentelemetry-exporter-otlp>=1.44.0",
+    "opentelemetry-exporter-otlp-proto-grpc>=1.44.0",
+    "opentelemetry-instrumentation-fastapi>=0.65b0",
+    "opentelemetry-instrumentation-urllib>=0.65b0",
+    "pydantic-ai>=2.32.0",
+    "pydantic-ai-slim[duckduckgo]>=2.32.0",
+    "python-multipart>=0.0.32",
+]
+
+[project.scripts]
+research-agent-backend = "research_agent_backend:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.3",
+    "ty>=0.0.73",
+]
