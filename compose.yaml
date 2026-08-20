@@ -22,7 +22,7 @@ services:
     env_file:
       - .env
     ports:
-      - "8787:8000"
+      - "8787:80"
     restart: unless-stopped
     networks:
       - research-agent-network
