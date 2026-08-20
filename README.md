@@ -22,12 +22,6 @@ Make sure Docker is running, start the compose services
 docker compose up -d
 ```
 
-You can view the dashboard at http://localhost:18888
-
-Finally run
-
-```shell
-uv run fastapi dev --port 8787 src/research_agent_backend/__init__.py
-```
-
-to start the backend.
+You can view the observability dashboard at http://localhost:18888 and the API docs at http://localhost:8787/docs.
+The backend should have been built via Docker.
+Even if you did not provide an OpenAI key in the previous step, the endpoint should still work with hardcoded responses.
